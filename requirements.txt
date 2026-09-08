@@ -1,0 +1,4 @@
+pygame>=2.6.0
+pyserial==3.5
+pyinstaller==6.4.0
+pytweening==1.0.7
