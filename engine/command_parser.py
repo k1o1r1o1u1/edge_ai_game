@@ -1,3 +1,4 @@
+# engine/command_parser.py
 import time
 from config.settings import COOLDOWN_ACTION
 
@@ -12,7 +13,7 @@ class CommandParser:
         command = raw_command.strip().upper()
         
         if command not in self.valid_commands:
-            return # Ignore IDLE or unknown commands
+            return  # Ignore IDLE or unknown commands
             
         current_time = time.time() * 1000
         
