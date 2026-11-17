@@ -1,10 +1,10 @@
-# 🥋 Edge AI Cyber Fighting Game
+#  Edge AI Cyber Fighting Game
 
 An arcade-style 2D motion-controlled fighting game built with Python and Pygame. The game interfaces with an **ESP32 microcontroller over USB Serial** running TinyML motion recognition (MPU6050 accelerometer/gyroscope) to translate physical gestures into real-time in-game combat. It also features a fully playable **Keyboard Simulation Mode** with dynamic difficulty presets, procedural chiptune audio, energy shockwave projectiles, and a 100% ultimate special charge mechanic.
 
 ---
 
-## 📸 In-Game Previews
+##  In-Game Previews
 
 | Arena & HUD Overview | Energy Shield & Combat Defense | 100% Super Ultimate Blast |
 |:---:|:---:|:---:|
@@ -12,7 +12,7 @@ An arcade-style 2D motion-controlled fighting game built with Python and Pygame.
 
 ---
 
-## 📑 Table of Contents
+##  Table of Contents
 1. [Overview & Core Features](#-overview--core-features)
 2. [Hardware Integration Architecture](#-hardware-integration-architecture)
 3. [Combat & Gameplay Mechanics](#-combat--gameplay-mechanics)
@@ -26,7 +26,7 @@ An arcade-style 2D motion-controlled fighting game built with Python and Pygame.
 
 ---
 
-## 🌟 Overview & Core Features
+##  Overview & Core Features
 
 - **Physical Gesture Control**: Connects with an ESP32 over serial at 115200 baud to read predictions (`PUNCH`, `BLOCK`, `DODGE`, `SPECIAL`).
 - **Energy Shockwave Projectiles**: Player punches manifest as high-velocity sonic shockwaves travelling across the arena instead of static melee hitboxes.
@@ -39,7 +39,7 @@ An arcade-style 2D motion-controlled fighting game built with Python and Pygame.
 
 ---
 
-## 📡 Hardware Integration Architecture
+##  Hardware Integration Architecture
 
 ```
 +-------------------+      +-------------------+      +-------------------------+
@@ -68,7 +68,7 @@ Verbose log messages from inference models (e.g., `Motion: PUNCH | Confidence: 9
 
 ---
 
-## 🎮 Combat & Gameplay Mechanics
+##  Combat & Gameplay Mechanics
 
 ### Command Summary
 
@@ -91,7 +91,7 @@ Verbose log messages from inference models (e.g., `Motion: PUNCH | Confidence: 9
 
 ---
 
-## 💻 Installation Guide (All Operating Systems)
+##  Installation Guide (All Operating Systems)
 
 ### Prerequisites
 - Python **3.9 to 3.13** installed on your system.
@@ -103,7 +103,7 @@ Verbose log messages from inference models (e.g., `Motion: PUNCH | Confidence: 9
 
 ```powershell
 # 1. Clone or navigate to the project directory
-cd ~/path/to/GAME
+cd \path\to\GAME
 
 # 2. Create a virtual environment
 python -m venv .venv
@@ -162,7 +162,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Running the Game
+##  Running the Game
 
 ### 1. Simulation Mode (Keyboard Only)
 Test the entire game immediately without any hardware connected:
@@ -195,7 +195,7 @@ python main.py
 
 ---
 
-## 📂 Codebase Architecture & Explanations
+##  Codebase Architecture & Explanations
 
 The repository follows a clean, modular object-oriented architecture:
 
@@ -271,7 +271,7 @@ Houses player state transformations (hexagonal shield rendering, color flashes) 
 
 ---
 
-## 📊 System Execution Flowcharts
+##  System Execution Flowcharts
 
 ### 1. Main Game Loop Flow
 
@@ -319,7 +319,7 @@ flowchart LR
 
 ---
 
-## ⚙️ Configuration & Customization
+##  Configuration & Customization
 
 Modify game variables directly in [`config/settings.py`](config/settings.py):
 
@@ -341,7 +341,7 @@ DURATION_DODGE = 900   # Evasion active window in milliseconds
 
 ---
 
-## 📦 Standalone Binary Distribution (Executable Build)
+##  Standalone Binary Distribution (Executable Build)
 
 You can package the entire game into a single standalone `.exe` (or Linux/macOS executable) for easy distribution without requiring Python installed:
 
@@ -354,7 +354,7 @@ The resulting standalone executable will be located in the `dist/` directory.
 
 ---
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### 1. Serial Port Connection Issues
 - **Error**: `Could not auto-detect ESP32`.
@@ -368,5 +368,5 @@ The resulting standalone executable will be located in the `dist/` directory.
 
 ---
 
-## 📜 License
+##  License
 Developed for the **Edge AI & TinyML Motion Controller Workshop**. Educational and open-source demonstration project.
