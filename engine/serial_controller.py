@@ -49,25 +49,19 @@ class SerialController:
             self.serial_conn.close()
             
     def _read_loop(self):
-        while self.running:
-            try:
-                if self.serial_conn and self.serial_conn.is_open:
-                    if self.serial_conn.in_waiting > 0:
-                        line = self.serial_conn.readline().decode('utf-8', errors='ignore').strip()
-                        if line:
-                            # It's recommended to log what we receive for debugging
-                            # print(f"Serial received: {line}")
-                            
-                            # The ESP32 might send "Motion: PUNCH | Confidence: 94%" 
-                            # Or just "PUNCH"
-                            # We will check if any known command is in the line
-                            upper_line = line.upper()
-                            for cmd in self.command_parser.valid_commands:
-                                if cmd in upper_line:
-                                    self.command_parser.process_command(cmd)
-                                    break
-                else:
-                    time.sleep(0.1)
-            except Exception as e:
-                print(f"Serial read error: {e}")
-                time.sleep(1) # Wait a bit before trying to read again to avoid spamming errors
+    while self.running:
+        try:
+            if self.serial_conn and self.serial_conn.is_open:
+                if self.serial_conn.in_waiting > 0:
+                    line = self.serial_conn.readline().decode('utf-8', errors='ignore').strip()
+                    if line:
+                        upper_line = line.upper()
+                        for cmd in self.command_parser.valid_commands:
+                            if cmd in upper_line:
+                                self.command_parser.process_command(cmd)
+                                break
+            else:
+                time.sleep(0.1)
+        except Exception as e:
+            print(f"Serial read error: {e}")
+            time.sleep(1)
