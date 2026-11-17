@@ -49,19 +49,19 @@ class SerialController:
             self.serial_conn.close()
             
     def _read_loop(self):
-    while self.running:
-        try:
-            if self.serial_conn and self.serial_conn.is_open:
-                if self.serial_conn.in_waiting > 0:
-                    line = self.serial_conn.readline().decode('utf-8', errors='ignore').strip()
-                    if line:
-                        upper_line = line.upper()
-                        for cmd in self.command_parser.valid_commands:
-                            if cmd in upper_line:
-                                self.command_parser.process_command(cmd)
-                                break
-            else:
-                time.sleep(0.1)
-        except Exception as e:
-            print(f"Serial read error: {e}")
-            time.sleep(1)
+        while self.running:
+            try:
+                if self.serial_conn and self.serial_conn.is_open:
+                    if self.serial_conn.in_waiting > 0:
+                        line = self.serial_conn.readline().decode('utf-8', errors='ignore').strip()
+                        if line:
+                            upper_line = line.upper()
+                            for cmd in self.command_parser.valid_commands:
+                                if cmd in upper_line:
+                                    self.command_parser.process_command(cmd)
+                                    break
+                else:
+                    time.sleep(0.1)
+            except Exception as e:
+                print(f"Serial read error: {e}")
+                time.sleep(1)
